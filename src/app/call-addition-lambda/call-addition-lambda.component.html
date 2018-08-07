@@ -1,3 +1,8 @@
-<div>
-    <button type="button" (click)="performAddition()">Perform Addition</button>
+<div class="col-md-12">
+    <h2>Perform Addition</h2>
+</div>
+<div class="col-md-6">
+    <form [formGroup]="callAdditionForm" (ngSubmit)="performAddition()" autocomplete="off">
+        <button type="submit" class="btn btn-primary">Perform Addition</button>
+    </form>
 </div>

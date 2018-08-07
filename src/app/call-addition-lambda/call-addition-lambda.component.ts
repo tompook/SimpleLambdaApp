@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LambdaServiceService } from '../shared/lambda-service.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-call-addition-lambda',
@@ -8,11 +8,12 @@ import { LambdaServiceService } from '../shared/lambda-service.service';
   styleUrls: ['./call-addition-lambda.component.css']
 })
 export class CallAdditionLambdaComponent implements OnInit {
+  callAdditionForm: FormGroup;
 
-  constructor(private http: HttpClient,
-              private lambdaService: LambdaServiceService) { }
+  constructor(private lambdaService: LambdaServiceService) { }
 
   ngOnInit() {
+    this.callAdditionForm = new FormGroup({});
   }
 
   performAddition() {
