@@ -11,6 +11,7 @@ export class CallAdditionLambdaComponent implements OnInit {
   callAdditionForm: FormGroup;
   numberOne: FormControl;
   numberTwo: FormControl;
+  numberResult: FormControl;
 
   constructor(private lambdaService: LambdaServiceService) { }
 
@@ -18,16 +19,18 @@ export class CallAdditionLambdaComponent implements OnInit {
     // set validators for form inputs
     this.numberOne = new FormControl(0, Validators.required);
     this.numberTwo = new FormControl(0, Validators.required);
+    this.numberResult = new FormControl(0);
 
     this.callAdditionForm = new FormGroup({
       numberOne: this.numberOne,
-      numberTwo: this.numberTwo
+      numberTwo: this.numberTwo,
+      numberResult: this.numberResult
     });
   }
 
-  performAddition() {
-    this.lambdaService.performAddition().subscribe(data => {
-      console.log(+data);
+  performAddition(formValues) {
+    this.lambdaService.performAddition(formValues.numberOne, formValues.numberTwo).subscribe(data => {
+      this.callAdditionForm.controls['numberResult'].setValue(+data);
     });
   }
 

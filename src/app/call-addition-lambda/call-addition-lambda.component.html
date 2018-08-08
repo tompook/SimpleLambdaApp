@@ -2,7 +2,7 @@
     <h2>Perform Addition</h2>
 </div>
 <div class="col-md-6">
-    <form [formGroup]="callAdditionForm" (ngSubmit)="performAddition()" autocomplete="off">
+    <form [formGroup]="callAdditionForm" (ngSubmit)="performAddition(callAdditionForm.value)" autocomplete="off">
         <div class="form-group">
             <label for="numberOne">Number One: </label>
             <input formControlName="numberOne" id="numberOne" type="number" class="form-control">
@@ -13,6 +13,13 @@
             <input formControlName="numberTwo" id="numberTwoo" type="number" class="form-control">
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Perform Addition</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Perform Addition</button>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="numberResult">Result: </label>
+            <input formControlName="numberResult" id="numberResult" type="number" class="form-control" [readonly]="true">
+        </div>
     </form>
 </div>
