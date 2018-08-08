@@ -3,23 +3,23 @@
 </div>
 <div class="col-md-6">
     <form [formGroup]="callAdditionForm" (ngSubmit)="performAddition(callAdditionForm.value)" autocomplete="off">
-        <div class="form-group">
+        <mat-form-field class="example-full-width">
             <label for="numberOne">Number One: </label>
-            <input formControlName="numberOne" id="numberOne" type="number" class="form-control">
-        </div>
+            <input matInput formControlName="numberOne" id="numberOne" type="number">
+        </mat-form-field>
         <br>
-        <div class="form-group">
+        <mat-form-field class="example-full-width">
             <label for="numberTwo">Number Two: </label>
-            <input formControlName="numberTwo" id="numberTwoo" type="number" class="form-control">
+            <input matInput formControlName="numberTwo" id="numberTwo" type="number" class="form-control">
+        </mat-form-field>
+        <br>
+        <div>
+            <button type="submit" mat-stroked-button color="primary">Perform Addition</button>
         </div>
         <br>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Perform Addition</button>
-        </div>
-        <br>
-        <div class="form-group">
+        <mat-form-field class="example-full-width">
             <label for="numberResult">Result: </label>
-            <input formControlName="numberResult" id="numberResult" type="number" class="form-control" [readonly]="true">
-        </div>
+            <input matInput formControlName="numberResult" id="numberResult" type="number" class="form-control" [readonly]="true">
+        </mat-form-field>
     </form>
 </div>
